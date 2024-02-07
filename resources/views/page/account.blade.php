@@ -55,6 +55,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if ($errors->any())
+                              <div class="alert alert-danger">
+                                  <ul>
+                                      @foreach ($errors->all() as $error)
+                                          <li>{{ $error }}</li>
+                                      @endforeach
+                                  </ul>
+                              </div>
+                          @endif
                                 <div class="actions-toolbar flex justify-between pt-6 pb-2 items-center">
                                     <button data-test="login-submit" type="submit" class="btn btn-primary disabled:opacity-75" name="send">
                                         <span>Sign In</span>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class AccountController extends Controller
 {
@@ -25,10 +27,24 @@ class AccountController extends Controller
      * @param Request $request
      */
     public function login(Request $request)
-    {
-        // implement login functionality
+  {
+    $validator = Validator::make($request->all(), [
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+
+    if ($validator->fails()) {
+        return redirect('/')->withErrors($validator)->withInput();
     }
 
+    $data = $request->only('email', 'password');
+
+    if (Auth::attempt($data)) {
+        return redirect()->intended('/success');
+    }
+
+    return redirect('/')->with('error', 'Error msg');
+  }
 
     /**
      * Logout user from the system

@@ -28,7 +28,8 @@ module.exports = {
 
             },
             fontFamily: {
-                sans: ["Segoe UI", "Helvetica Neue", "Arial", "sans-serif"]
+                sans: ["Segoe UI", "Helvetica Neue", "Arial", "sans-serif"],
+                montserrat: ["Montserrat", "sans-serif"],
             },
             colors: {
                 primary: {

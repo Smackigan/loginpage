@@ -7,8 +7,9 @@
                 <a class="flex items-center justify-center text-xl font-medium tracking-wide text-gray-800
         no-underline hover:no-underline font-title" href="#" title="" aria-label="store logo">
                     <img
-                        src="{{ asset("images/logo.svg") }}"
-                        title="" alt="" width="189" height="53">
+                        src="{{ asset("images/LogoIcon.svg") }}"
+                        title="" alt="" width="24" height="40">
+                        <img src="{{ asset("images/pineapple..png") }}" class="ml-[16px] mt-[20px]" />
                 </a>
             </div>
 
@@ -37,38 +38,38 @@
                 <div class="hidden lg:block lg:relative lg:min-h-0 lg:px-8 lg:w-auto lg:pt-0">
                     <nav class="w-full duration-150 ease-in-out transform flex justify-start w-auto relative min-h-0 transition-display">
                         <div class="relative mr-2 level-0">
-                            <span class="flex items-center block p-3 text-md bg-opacity-95">
-                                <a data-test="header-link" class="w-full py-3 text-base text-gray-700 hover:underline level-0"
+                            <span class="flex items-center block p-3 bg-opacity-95">
+                                <a data-test="header-link" class="w-full py-3 text-base text-gray-700 hover:underline level-0 uppercase font-medium font-montserrat text-green leading-6"
                                    href="#" title="What's New">What's New</a>
                             </span>
                         </div>
                         <div class="relative mr-2 level-0">
                             <span class="flex items-center block p-3 text-md bg-opacity-95">
-                                <a data-test="header-link" class="w-full py-3 text-base text-gray-700 hover:underline level-0"
+                                <a data-test="header-link" class="w-full py-3 text-base text-gray-700 hover:underline level-0 uppercase"
                                    href="#" title="Women">Women</a>
                             </span>
                         </div>
                         <div class="relative mr-2 level-0">
                             <span class="flex items-center block p-3 text-md bg-opacity-95">
-                                <a data-test="header-link" class="w-full py-3 text-base text-gray-700 hover:underline level-0"
+                                <a data-test="header-link" class="w-full py-3 text-base text-gray-700 hover:underline level-0 uppercase"
                                    href="#" title="Men">Men</a>
                             </span>
                         </div>
                         <div class="relative mr-2 level-0">
                             <span class="flex items-center block p-3 text-md bg-opacity-95">
-                                <a data-test="header-link" class="w-full py-3 text-base text-gray-700 hover:underline level-0"
+                                <a data-test="header-link" class="w-full py-3 text-base text-gray-700 hover:underline level-0 uppercase"
                                    href="#" title="Gear">Gear</a>
                             </span>
                         </div>
                         <div class="relative mr-2 level-0">
                             <span class="flex items-center block p-3 text-md bg-opacity-95">
-                                <a data-test="header-link" class="w-full py-3 text-base text-gray-700 hover:underline level-0"
+                                <a data-test="header-link" class="w-full py-3 text-base text-gray-700 hover:underline level-0 uppercase"
                                    href="#" title="Training">Training</a>
                             </span>
                         </div>
                         <div class="relative mr-2 level-0">
                             <span class="flex items-center block p-3 text-md bg-opacity-95">
-                                <a data-test="header-link" class="w-full py-3 text-base text-gray-700 hover:underline level-0"
+                                <a data-test="header-link" class="w-full py-3 text-base text-gray-700 hover:underline level-0 uppercase"
                                    href="#" title="Sale">Sale</a>
                             </span>
                         </div>
