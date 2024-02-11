@@ -2,7 +2,7 @@ h1,
 h2,
 h3,
 h4 {
-    @apply tracking-widest font-medium text-primary uppercase;
+    @apply w-full  uppercase font-medium font-montserrat tracking-[0.10em];
 }
 
 h1 {
@@ -10,11 +10,9 @@ h1 {
 }
 
 h2 {
-    @apply text-base;
+    @apply text-[16px] leading-7 font-medium font-montserrat tracking-[0.15em] text-[#02170E];
 }
 
 a {
-    @apply text-primary hover:text-primary-lighter active:text-primary-darker;
+    @apply text-[#02170E] hover:text-[#0F8352] active:text-[#0A5737];
 }
-
-

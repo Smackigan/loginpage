@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 class AccountController extends Controller
 {
@@ -27,24 +28,26 @@ class AccountController extends Controller
      * @param Request $request
      */
     public function login(Request $request)
-  {
-    $validator = Validator::make($request->all(), [
-        'email' => 'required|email',
-        'password' => 'required',
-    ]);
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-    if ($validator->fails()) {
-        return redirect('/')->withErrors($validator)->withInput();
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $data = $request->only('email', 'password');
+
+        if (Auth::attempt($data)) {
+            return redirect()->intended('/success');
+        }
+
+        return redirect()->back()->with('error', 'Invalid email or password')->withInput();
     }
 
-    $data = $request->only('email', 'password');
 
-    if (Auth::attempt($data)) {
-        return redirect()->intended('/success');
-    }
-
-    return redirect('/')->with('error', 'Error msg');
-  }
 
     /**
      * Logout user from the system
