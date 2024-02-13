@@ -814,6 +814,9 @@ select{
 .mt-\[20px\]{
   margin-top: 20px;
 }
+.-mt-2{
+  margin-top: -0.5rem;
+}
 .block{
   display: block;
 }

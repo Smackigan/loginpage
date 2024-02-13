@@ -27,27 +27,49 @@ class AccountController extends Controller
      *
      * @param Request $request
      */
+    // public function login(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'email' => 'required|email',
+    //         'password' => 'required',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return redirect()->back()->withErrors($validator)->withInput();
+    //     }
+
+    //     $data = $request->only('email', 'password');
+
+    //     if (Auth::attempt($data)) {
+    //         return redirect()->intended('/success');
+    //     }
+
+    //     return redirect()->back()->with('error', 'Invalid email or password')->withInput();
+    // }
+
     public function login(Request $request)
     {
+        // Validate the request data
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
+        // If validation fails, redirect back with errors
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $data = $request->only('email', 'password');
-
-        if (Auth::attempt($data)) {
+        // Attempt to authenticate the user
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            // Authentication successful, redirect to intended URL
             return redirect()->intended('/success');
+        } else {
+            // Authentication failed, redirect back with error message
+            return redirect()->back()->with('error', 'Invalid email or password');
         }
-
-        return redirect()->back()->with('error', 'Invalid email or password')->withInput();
     }
-
-
 
     /**
      * Logout user from the system
