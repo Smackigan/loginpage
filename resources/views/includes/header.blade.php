@@ -2,9 +2,9 @@
     <header>
         <div data-test="header-bar" id="header"
             class="relative z-30 w-full border-b shadow bg-container-lighter border-container-lighter">
-            <div class="container flex flex-wrap items-center justify-between w-full py-3 mx-auto mt-0">
+            <div class="container flex  items-center justify-between  py-3 mx-auto mt-0">
                 <!--Logo-->
-                <div class="order-1 sm:order-2 lg:order-1 w-full pb-2 sm:w-auto sm:pb-0">
+                <div class="order-2 sm:order-2 lg:order-1 w-full  sm:w-auto sm:pb-0">
                     <a class="flex items-center justify-center text-xl font-medium tracking-wide text-gray-800
         no-underline hover:no-underline font-title"
                         href="#" title="" aria-label="store logo">
@@ -15,7 +15,7 @@
                 </div>
 
                 <!--Main Navigation-->
-                <div class="z-20 order-2 sm:order-1 lg:order-2 navigation lg:hidden">
+                <div class="z-20 order-1 sm:order-1 lg:order-2 navigation lg:hidden">
                     <!-- mobile -->
                     <div class="bg-container-lighter">
                         <div class="flex items-baseline justify-between menu-icon">
@@ -89,7 +89,7 @@
                         <a data-test="header-icon" href="#" id="customer-menu"
                             class="block hover:stroke-[#0F8352] " aria-label="My Account" aria-expanded="false">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                class="md:h-6 md:w-6 stroke-[#02170E] hover:stroke-[#0F8352] active:stroke-[#0A5737]"
+                                class="h-6 w-6 stroke-[#02170E] hover:stroke-[#0F8352] active:stroke-[#0A5737]"
                                 width="32" height="32" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class=""
                                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
@@ -102,7 +102,7 @@
                         class="relative inline-block ml-1 no-underline sm:ml-3 hover:text-black" href="#">
                         <span class="sr-only label">Cart</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            class="w-8 h-8 md:h-6 md:w-6 stroke-[#02170E] hover:stroke-[#0F8352] active:stroke-[#0A5737]"
+                            class="h-6 w-6 stroke-[#02170E] hover:stroke-[#0F8352] active:stroke-[#0A5737]"
                             width="25" height="25">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">

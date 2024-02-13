@@ -58,8 +58,6 @@
 
                                  </div>
 
-
-
                              </div>
                              @if ($errors->has('password'))
                                  <div class="error-message text-red" id="password-error">
