@@ -16,3 +16,7 @@ h2 {
 a {
     @apply text-[#02170E] hover:text-[#0F8352] active:text-[#0A5737];
 }
+
+.error-message {
+    @apply mb-1;
+}

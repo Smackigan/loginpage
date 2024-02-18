@@ -2,22 +2,22 @@
 document.addEventListener("DOMContentLoaded", function () {
     const emailInput = document.getElementById("email");
     const emailError = document.getElementById("email-error");
-    const passwordInput = document.getElementById("pass");
+    const passwordInput = document.getElementById("password");
     const passwordError = document.getElementById("password-error");
 
-    // Function to display error messages
+    // display error messages
     function showError(el, message) {
         el.textContent = message;
         el.style.display = "block";
     }
 
-    // Function to hide error messages
+    // hide error messages
     function hideError(el) {
         el.textContent = "";
         el.style.display = "none";
     }
 
-    // Function to validate email format
+    // Validate email format
     function validateEmail(email) {
         const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return pattern.test(email);
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return password.trim().length >= 6;
     }
 
-    // Event listener for form submission
+    // Submnit
     document
         .getElementById("customer-login-form")
         .addEventListener("submit", function (e) {
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Validate email
             if (emailInput.value.trim() === "") {
-                showError(emailError, "Email address is required!!");
+                showError(emailError, "Email address is required");
                 e.preventDefault();
                 console.log(emailError, "missing email");
             } else if (!validateEmail(emailInput.value)) {
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (!validatePassword(passwordInput.value)) {
                 showError(
                     passwordError,
-                    "Password must be at least 6 characters long"
+                    "Password must be at least 4 characters long"
                 );
                 e.preventDefault();
             }
