@@ -7,7 +7,9 @@
         </h1>
     </div>
 
-    <form class="card w-full mb-8 md:my-0">
+    <form class="card w-full mb-8 md:my-0" method="post" action="" id="customer-register-form">
+        @csrf
+        @method('post')
 
         <h2 class="title-font mb-3 text-primary" role="heading" aria-level="2">
             Personal Information
@@ -18,64 +20,73 @@
                 <span class="text-[#02170E] text-base font-normal font-montserrat">First Name</span>
             </label>
             <div class="control">
-                <input data-test="login-email" name="firstName" class="form-input" value="{{ old('firstName') }}"
-                    autocomplete="off" id="name" title="firstName">
+                <input data-test="register-lastName" name="firstName" id="firstName" class="form-input"
+                    value="{{ old('firstName') }}" autocomplete="off" title="firstName">
             </div>
+            <div class="error-message text-red-500" id="firstNameError"></div>
         </div>
+
         <div class="lastName">
             <label class="label" for="lastName">
                 <span class="text-[#02170E] text-base font-normal font-montserrat">Last Name</span>
             </label>
             <div class="control">
-                <input data-test="login-email" name="lastName" class="form-input" value="{{ old('lastName') }}"
-                    autocomplete="off" id="name" title="lastName">
+                <input data-test="login-email" name="lastName" class="form-input" id="lastName"
+                    value="{{ old('lastName') }}" autocomplete="off" title="lastName">
             </div>
+            <div class="error-message text-red-500" id="lastNameError"></div>
         </div>
 
         <h2 class="title-font mb-3 mt-4 text-primary" role="heading" aria-level="2">
             Sign-in Information
         </h2>
         <div class="email">
-            <label class="label" for="lastName">
+            <label class="label" for="email">
                 <span class="text-[#02170E] text-base font-normal font-montserrat">Email</span>
             </label>
             <div class="control">
-                <input data-test="login-email" name="lastName" class="form-input" value="{{ old('lastName') }}"
-                    autocomplete="off" id="name" title="lastName">
+                <input data-test="register-email" name="register-email" id="register-email" class="form-input"
+                    value="{{ old('email') }}" autocomplete="off" id="register-email" title="register-email">
             </div>
+            <div class="error-message text-red-500" id="registerEmailError"></div>
         </div>
+
         <div class="password">
             <label class="label" for="lastName">
                 <span class="text-[#02170E] text-base font-normal font-montserrat">Password</span>
             </label>
             <div class="control">
-                <input data-test="login-email" name="lastName" class="form-input" value="{{ old('lastName') }}"
-                    autocomplete="off" id="name" title="lastName">
+                <input data-test="register-password" name="register-password" class="form-input" value=""
+                    autocomplete="off" id="register-password" title="register-password">
             </div>
+            <div class="error-message text-red-500" id="registerPasswordError"></div>
         </div>
+
         <div class="confirm">
-            <label class="label" for="lastName">
+            <label class="label" for="confirm">
                 <span class="text-[#02170E] text-base font-normal font-montserrat">Confirm
                     Password</span>
             </label>
             <div class="control">
-                <input data-test="login-email" name="lastName" class="form-input" value="{{ old('lastName') }}"
-                    autocomplete="off" id="name" title="lastName">
+                <input data-test="register-passwordConfirm" name="confirm" class="form-input" value=""
+                    autocomplete="off" id="confirm" title="confirm">
             </div>
+            <div class="error-message text-red-500" id="confirmPasswordError"></div>
         </div>
 
         <div class="flex items-center mt-4">
-            <input id="checkbox" type="checkbox"
+            <input id="checkbox" type="checkbox" data-test="register-newsletter"
                 class="h-4 w-4 flex rounded border border-[#D1D5DB] text-[#0F8352] hover:border hover:border-[#0F8352]" />
 
             <label class="text-[#02170E] text-base font-normal font-montserrat ml-4 flex mb-0">Sign Up
                 for
                 Newsletter</label>
         </div>
+
         <div class="actions-toolbar pt-6 pb-2 flex self-end">
-            <a href="#" class="btn hover:text-white active:text-white">
+            <button class="btn hover:text-white active:text-white" type="submit" name="register" id="register">
                 <span>Create an Account</span>
-            </a>
+            </button>
         </div>
     </form>
 </div>

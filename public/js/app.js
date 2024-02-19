@@ -35,18 +35,17 @@ document.addEventListener("DOMContentLoaded", function () {
     return password.trim().length >= 6;
   }
 
-  // Submnit
+  // Submit
   document.getElementById("customer-login-form").addEventListener("submit", function (e) {
     // Reset error message
     hideError(emailError);
     hideError(passwordError);
-    console.log("Form submitted");
 
     // Validate email
     if (emailInput.value.trim() === "") {
       showError(emailError, "Email address is required");
       e.preventDefault();
-      console.log(emailError, "missing email");
+      console.log("missing email");
     } else if (!validateEmail(emailInput.value)) {
       showError(emailError, "Please provide a valid email address");
       e.preventDefault();
@@ -60,6 +59,122 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (!validatePassword(passwordInput.value)) {
       showError(passwordError, "Password must be at least 4 characters long");
       e.preventDefault();
+    }
+  });
+});
+
+///////////////////
+// register form
+document.addEventListener("DOMContentLoaded", function () {
+  var firstNameInput = document.getElementById("firstName");
+  var nameError = document.getElementById("firstNameError");
+  var lastNameInput = document.getElementById("lastName");
+  var lastNameError = document.getElementById("lastNameError");
+  var registerEmailInput = document.getElementById("register-email");
+  var registerEmailError = document.getElementById("registerEmailError");
+  var password = document.getElementById("register-password");
+  var passwordError = document.getElementById("registerPasswordError");
+  var confirmInput = document.getElementById("confirm");
+  var confirmError = document.getElementById("confirmPasswordError");
+  var checkbox = document.getElementById("checkbox");
+  var registerForm = document.getElementById("customer-register-form");
+
+  // display error message
+  function showError(el, message) {
+    el.textContent = message;
+    el.style.display = "block";
+  }
+
+  // hide error message
+  function hideError(el) {
+    el.textContent = "";
+    el.style.display = "none";
+  }
+
+  // password length
+  function validatePassword(password) {
+    return password.trim().length >= 6;
+  }
+
+  // check if passwords match
+  function passwordsMatch(password, confirm) {
+    return password === confirm;
+  }
+
+  // validate email format
+  function validateEmail(email) {
+    var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(email);
+  }
+
+  // validate form fields
+  function validateForm() {
+    var isValid = true;
+    hideError(nameError);
+    hideError(lastNameError);
+    hideError(registerEmailError);
+    hideError(passwordError);
+    hideError(confirmError);
+
+    // Validate first name
+    if (firstNameInput.value.trim() === "") {
+      showError(nameError, "First Name is required");
+      isValid = false;
+    } else {
+      console.log("First Name");
+    }
+
+    // Validate last name
+    if (lastNameInput.value.trim() === "") {
+      showError(lastNameError, "Last Name is required");
+      isValid = false;
+    } else {
+      console.log("Last Name");
+    }
+
+    // Validate email
+    if (registerEmailInput.value.trim() === "") {
+      showError(registerEmailError, "Email address is required");
+      isValid = false;
+    } else if (!validateEmail(registerEmailInput.value)) {
+      showError(registerEmailError, "Please provide a valid email address");
+      isValid = false;
+    } else {
+      console.log("email");
+    }
+
+    // Validate password
+    if (password.value.trim() === "") {
+      showError(passwordError, "Password is required");
+      isValid = false;
+    } else if (!validatePassword(password.value)) {
+      showError(passwordError, "Password must be at least 6 characters long");
+      isValid = false;
+    } else {
+      console.log("password");
+    }
+
+    // Validate confirm password
+    if (confirmInput.value.trim() === "") {
+      showError(confirmError, "Confirm Password is required");
+      isValid = false;
+    } else if (!passwordsMatch(password.value, confirmInput.value)) {
+      showError(confirmError, "Passwords do not match");
+      isValid = false;
+    } else {
+      console.log("confirm");
+    }
+    return isValid;
+  }
+
+  // Form submit
+  registerForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    if (validateForm()) {
+      console.log("Form submitted successfully");
+      this.submit();
+    } else {
+      console.log("Form submission failed - invalid form data");
     }
   });
 });
