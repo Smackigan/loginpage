@@ -68,11 +68,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const nameError = document.getElementById("firstNameError");
     const lastNameInput = document.getElementById("lastName");
     const lastNameError = document.getElementById("lastNameError");
-    const registerEmailInput = document.getElementById("register-email");
+    const registerEmailInput = document.getElementById("registerEmail");
     const registerEmailError = document.getElementById("registerEmailError");
-    const password = document.getElementById("register-password");
+    const password = document.getElementById("registerPassword");
     const passwordError = document.getElementById("registerPasswordError");
-    const confirmInput = document.getElementById("confirm");
+    const confirmInput = document.getElementById("confirmPassword");
     const confirmError = document.getElementById("confirmPasswordError");
     const checkbox = document.getElementById("checkbox");
     const registerForm = document.getElementById("customer-register-form");

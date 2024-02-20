@@ -7,7 +7,7 @@
         </h1>
     </div>
 
-    <form class="card w-full mb-8 md:my-0" method="post" action="" id="customer-register-form">
+    <form class="card w-full mb-8 md:my-0" method="post" action="{{ url('register') }}" id="customer-register-form">
         @csrf
         @method('post')
 
@@ -24,6 +24,9 @@
                     value="{{ old('firstName') }}" autocomplete="off" title="firstName">
             </div>
             <div class="error-message text-red-500" id="firstNameError"></div>
+            @error('firstName')
+                <div class="error-message text-red-500 -mb-3">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="lastName">
@@ -35,31 +38,41 @@
                     value="{{ old('lastName') }}" autocomplete="off" title="lastName">
             </div>
             <div class="error-message text-red-500" id="lastNameError"></div>
+            @error('lastName')
+                <div class="error-message text-red-500 -mb-3">{{ $message }}</div>
+            @enderror
         </div>
 
         <h2 class="title-font mb-3 mt-4 text-primary" role="heading" aria-level="2">
             Sign-in Information
         </h2>
+
         <div class="email">
             <label class="label" for="email">
                 <span class="text-[#02170E] text-base font-normal font-montserrat">Email</span>
             </label>
             <div class="control">
-                <input data-test="register-email" name="register-email" id="register-email" class="form-input"
-                    value="{{ old('email') }}" autocomplete="off" id="register-email" title="register-email">
+                <input data-test="email" name="registerEmail" id="registerEmail" class="form-input"
+                    value="{{ old('registerEmail') }}" autocomplete="off" title="register-email">
             </div>
             <div class="error-message text-red-500" id="registerEmailError"></div>
+            @error('registerEmail')
+                <div class="error-message text-red-500 -mb-3">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="password">
-            <label class="label" for="lastName">
+            <label class="label" for="password">
                 <span class="text-[#02170E] text-base font-normal font-montserrat">Password</span>
             </label>
             <div class="control">
-                <input data-test="register-password" name="register-password" class="form-input" value=""
-                    autocomplete="off" id="register-password" title="register-password">
+                <input data-test="password" name="registerPassword" class="form-input" value="" autocomplete="off"
+                    type="password" id="registerPassword" title="registerPassword">
             </div>
             <div class="error-message text-red-500" id="registerPasswordError"></div>
+            @error('registerPassword')
+                <div class="error-message text-red-500 -mb-3">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="confirm">
@@ -68,10 +81,13 @@
                     Password</span>
             </label>
             <div class="control">
-                <input data-test="register-passwordConfirm" name="confirm" class="form-input" value=""
-                    autocomplete="off" id="confirm" title="confirm">
+                <input data-test="register-passwordConfirm" name="confirmPassword" class="form-input" value=""
+                    type="password" autocomplete="off" id="confirmPassword" title="confirmPassword">
             </div>
             <div class="error-message text-red-500" id="confirmPasswordError"></div>
+            @error('confirmPassword')
+                <div class="error-message text-red-500 -mb-3">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="flex items-center mt-4">

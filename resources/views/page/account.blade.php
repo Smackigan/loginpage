@@ -12,6 +12,15 @@
 
                 @include('includes.register')
 
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const successMessage = '{{ session('success') }}';
+                        if (successMessage) {
+                            alert(successMessage);
+                        }
+                    });
+                </script>
+
             </div>
 
         </div>

@@ -70,11 +70,11 @@ document.addEventListener("DOMContentLoaded", function () {
   var nameError = document.getElementById("firstNameError");
   var lastNameInput = document.getElementById("lastName");
   var lastNameError = document.getElementById("lastNameError");
-  var registerEmailInput = document.getElementById("register-email");
+  var registerEmailInput = document.getElementById("registerEmail");
   var registerEmailError = document.getElementById("registerEmailError");
-  var password = document.getElementById("register-password");
+  var password = document.getElementById("registerPassword");
   var passwordError = document.getElementById("registerPasswordError");
-  var confirmInput = document.getElementById("confirm");
+  var confirmInput = document.getElementById("confirmPassword");
   var confirmError = document.getElementById("confirmPasswordError");
   var checkbox = document.getElementById("checkbox");
   var registerForm = document.getElementById("customer-register-form");

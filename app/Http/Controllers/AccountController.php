@@ -61,7 +61,29 @@ class AccountController extends Controller
      */
     public function register(Request $request)
     {
-        // implement register functionality
+        $validator = Validator::make($request->all(), [
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'registerEmail' => 'required|email|unique:users,email',
+            'registerPassword' => 'required|min:8|regex:/^(?=.*[a-zA-Z])(?=.*\d).+$/',
+            'confirmPassword' => 'required|same:registerPassword',
+            'checkbox' => 'nullable|boolean',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // valudation passed
+        $user = User::create([
+            'firstname' => $request->input('firstName'),
+            'lastname' => $request->input('lastName'),
+            'email' => $request->input('registerEmail'),
+            'password' => bcrypt($request->input('registerPassword')),
+            'subscribed' => $request->input('checkbox', false),
+        ]);
+
+        return redirect('/')->with('success', 'User registered successfully!');
     }
 
     /**
