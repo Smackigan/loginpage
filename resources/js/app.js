@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validatePassword(password) {
-        return password.trim().length >= 6;
+        return password.trim().length >= 8;
     }
 
     // Submit
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (!validatePassword(passwordInput.value)) {
                 showError(
                     passwordError,
-                    "Password must be at least 4 characters long"
+                    "Password must be at least 8 characters long"
                 );
                 e.preventDefault();
             }

@@ -2,14 +2,11 @@
 
 @section('content')
 
-
     <div class="">
         <div class="column main">
             <div id="" class="columns">
 
                 @include('includes.login')
-
-
                 @include('includes.register')
 
                 <script>

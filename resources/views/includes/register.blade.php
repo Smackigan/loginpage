@@ -1,4 +1,4 @@
-<div>
+<div class="wrapper">
     <div class=" flex flex-col md:flex-row flex-wrap mt-16 mb-6 ml-6 lg:ml-0">
         <h1 class="text-[#02170E] page-title title-font">
             <span class="text-xl xl:text-2xl" data-ui-id="page-title-wrapper">
@@ -15,12 +15,13 @@
             Personal Information
         </h2>
 
+        {{-- First name --}}
         <div class="firstName">
             <label class="label" for="firstName">
                 <span class="text-[#02170E] text-base font-normal font-montserrat">First Name</span>
             </label>
             <div class="control">
-                <input data-test="register-lastName" name="firstName" id="firstName" class="form-input"
+                <input data-test="register-firstName" name="firstName" id="firstName" class="form-input"
                     value="{{ old('firstName') }}" autocomplete="off" title="firstName">
             </div>
             <div class="error-message text-red-500" id="firstNameError"></div>
@@ -29,12 +30,13 @@
             @enderror
         </div>
 
+        {{-- Last name --}}
         <div class="lastName">
             <label class="label" for="lastName">
                 <span class="text-[#02170E] text-base font-normal font-montserrat">Last Name</span>
             </label>
             <div class="control">
-                <input data-test="login-email" name="lastName" class="form-input" id="lastName"
+                <input data-test="register-lastName" name="lastName" class="form-input" id="lastName"
                     value="{{ old('lastName') }}" autocomplete="off" title="lastName">
             </div>
             <div class="error-message text-red-500" id="lastNameError"></div>
@@ -47,12 +49,13 @@
             Sign-in Information
         </h2>
 
+        {{-- Email --}}
         <div class="email">
             <label class="label" for="email">
                 <span class="text-[#02170E] text-base font-normal font-montserrat">Email</span>
             </label>
             <div class="control">
-                <input data-test="email" name="registerEmail" id="registerEmail" class="form-input"
+                <input data-test="register-email" name="registerEmail" id="registerEmail" class="form-input"
                     value="{{ old('registerEmail') }}" autocomplete="off" title="register-email">
             </div>
             <div class="error-message text-red-500" id="registerEmailError"></div>
@@ -61,13 +64,14 @@
             @enderror
         </div>
 
+        {{-- Pass --}}
         <div class="password">
             <label class="label" for="password">
                 <span class="text-[#02170E] text-base font-normal font-montserrat">Password</span>
             </label>
             <div class="control">
-                <input data-test="password" name="registerPassword" class="form-input" value="" autocomplete="off"
-                    type="password" id="registerPassword" title="registerPassword">
+                <input data-test="register-password" name="registerPassword" class="form-input" value=""
+                    autocomplete="off" type="password" id="registerPassword" title="registerPassword">
             </div>
             <div class="error-message text-red-500" id="registerPasswordError"></div>
             @error('registerPassword')
@@ -75,6 +79,7 @@
             @enderror
         </div>
 
+        {{-- Confirm pass --}}
         <div class="confirm">
             <label class="label" for="confirm">
                 <span class="text-[#02170E] text-base font-normal font-montserrat">Confirm
@@ -90,6 +95,7 @@
             @enderror
         </div>
 
+        {{-- Checkbox --}}
         <div class="flex items-center mt-4">
             <input id="checkbox" type="checkbox" data-test="register-newsletter"
                 class="h-4 w-4 flex rounded border border-[#D1D5DB] text-[#0F8352] hover:border hover:border-[#0F8352]" />
@@ -100,7 +106,8 @@
         </div>
 
         <div class="actions-toolbar pt-6 pb-2 flex self-end">
-            <button class="btn hover:text-white active:text-white" type="submit" name="register" id="register">
+            <button class="btn hover:text-white active:text-white" type="submit" name="register" id="register"
+                data-test="register-submit">
                 <span>Create an Account</span>
             </button>
         </div>

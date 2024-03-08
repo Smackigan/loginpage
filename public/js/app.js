@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return pattern.test(email);
   }
   function validatePassword(password) {
-    return password.trim().length >= 6;
+    return password.trim().length >= 8;
   }
 
   // Submit
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
       showError(passwordError, "Password is required");
       e.preventDefault();
     } else if (!validatePassword(passwordInput.value)) {
-      showError(passwordError, "Password must be at least 4 characters long");
+      showError(passwordError, "Password must be at least 8 characters long");
       e.preventDefault();
     }
   });

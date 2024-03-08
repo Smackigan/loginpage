@@ -12,53 +12,58 @@ use Illuminate\Support\Facades\Validator;
 class AccountController extends Controller
 {
 
-    /**
-     * Display my account page
-     *
-     * @return Response
-     */
+
     public function index(): Response
     {
         return response()->view('page.account');
     }
 
-    /**
-     * Login user in to the system
-     *
-     * @param Request $request
-     */
-
+    // LOGIN
     public function login(Request $request)
     {
 
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'password' => 'required|min:4',
+            'password' => 'required|min:8',
         ]);
 
         if ($validator->fails()) {
             return redirect('/')->withErrors(['loginError' => 'Password or email is incorrect!']);
         }
 
-        return redirect()->intended('/success');
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+
+            return redirect('/success');
+        }
+
+        return redirect('/')->withErrors(['loginError' => 'Password or email is incorrect!']);
     }
 
-    /**
-     * Logout user from the system
-     *
-     */
-    public function logout()
+    // SUCCESS
+    public function success()
     {
-        // implement logout functionality
+        //implement check if the user is authorized
+        if (Auth::check()) {
+            // Get the authenticated user
+            $user = Auth::user();
+
+            // Pass the user's first name and last name to the view
+            return view('page.success')->with(['firstName' => $user->firstName, 'lastName' => $user->lastName]);
+        }
 
         return redirect('/');
     }
 
-    /**
-     * Register user in the system
-     *
-     * @param Request $request
-     */
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect('/');
+    }
+
+    // REGISTER
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -84,19 +89,5 @@ class AccountController extends Controller
         ]);
 
         return redirect('/')->with('success', 'User registered successfully!');
-    }
-
-    /**
-     * Display a success message for logged-in users
-     *
-     */
-    public function success()
-    {
-        // implement check if the user is authorized
-        // if (true) {
-        //     return view('page.success')->with(['firstname' => 'John', 'lastname' => 'Smith']);
-        // }
-
-        return redirect('/');
     }
 }
